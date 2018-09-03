@@ -157,7 +157,7 @@ LDFLAGS = $(MCU) -T$(LDSCRIPT) -specs=nosys.specs -static -Wl,-cref,-u,Reset_Han
 
 
 # default action: build all
-all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
+all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin size
 
 
 #######################################
@@ -184,7 +184,6 @@ $(BUILD_DIR)/%.o: %.cpp Makefile | $(BUILD_DIR)
 
 $(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) Makefile
 	@$(CPP) $(OBJECTS) $(LDFLAGS) -o $@
-	@$(SZ) $@
 
 $(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.elf | $(BUILD_DIR)
 	@$(HEX) $< $@
@@ -205,6 +204,13 @@ clean:
 # dependencies
 #######################################
 -include $(wildcard $(BUILD_DIR)/*.d)
+
+#######################################
+# size
+#######################################
+size:
+	@$(SZ) $(BUILD_DIR)/$(TARGET).elf
+	@stm-size -c
 
 #######################################
 # flash
