@@ -339,7 +339,7 @@ void arm_iir_lattice_f32(
     }
 } /* arm_iir_lattice_f32 */
 
-#else  /* ifndef ARM_MATH_CM0_FAMILY */
+#else /* ifndef ARM_MATH_CM0_FAMILY */
 
 void arm_iir_lattice_f32(
     const arm_iir_lattice_instance_f32 *S,

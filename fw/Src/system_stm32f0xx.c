@@ -211,7 +211,7 @@ void SystemInit(void)
     RCC->CFGR3 &= (uint32_t) 0xFFFFFE6CU;
     /* Set default USB clock to PLLCLK, since there is no HSI48 */
     RCC->CFGR3 |= (uint32_t) 0x00000080U;
-    #else  /* if defined(STM32F072xB) || defined(STM32F078xx) */
+    #else /* if defined(STM32F072xB) || defined(STM32F078xx) */
     # warning "No target selected"
     #endif /* if defined(STM32F072xB) || defined(STM32F078xx) */
 

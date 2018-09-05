@@ -187,7 +187,7 @@ arm_status arm_mat_cmplx_mult_q15(
                 *px   = in;
                 in    = *pInB++;
                 px[1] = in;
-                #else  /* ifdef UNALIGNED_SUPPORT_DISABLE */
+                #else /* ifdef UNALIGNED_SUPPORT_DISABLE */
 
                 /* Read two elements from the row */
                 in = *__SIMD32(pInB)++;
@@ -319,7 +319,7 @@ arm_status arm_mat_cmplx_mult_q15(
                     sumImag += (q31_t) b * c;
                     /* update pointer */
                     pInB += 4u;
-                    #else  /* ifdef UNALIGNED_SUPPORT_DISABLE */
+                    #else /* ifdef UNALIGNED_SUPPORT_DISABLE */
                     /* read real and imag values from pSrcA and pSrcB buffer */
                     pSourceA = *__SIMD32(pInA)++;
                     pSourceB = *__SIMD32(pInB)++;
@@ -373,7 +373,7 @@ arm_status arm_mat_cmplx_mult_q15(
                     sumReal -= (q31_t) b * d;
                     sumImag += (q31_t) b * c;
 
-                    #else  /* ifdef UNALIGNED_SUPPORT_DISABLE */
+                    #else /* ifdef UNALIGNED_SUPPORT_DISABLE */
                     /* read real and imag values from pSrcA and pSrcB buffer */
                     pSourceA = *__SIMD32(pInA)++;
                     pSourceB = *__SIMD32(pInB)++;

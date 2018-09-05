@@ -137,7 +137,7 @@ void arm_scale_q15(
         blkCnt--;
     }
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

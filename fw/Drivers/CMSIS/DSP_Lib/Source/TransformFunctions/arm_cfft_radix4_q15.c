@@ -484,7 +484,7 @@ void arm_radix4_butterfly_q15(
                 out1 = __SMUAD(C1, S) >> 16u;
                 out2 = __SMUSDX(C1, S);
 
-                # else  /* ifndef ARM_MATH_BIG_ENDIAN */
+                # else /* ifndef ARM_MATH_BIG_ENDIAN */
 
                 /* R = packed((ya-yc) + (xb- xd) , (xa-xc) - (yb-yd)) */
                 R = __SHSAX(S, T);
@@ -598,7 +598,7 @@ void arm_radix4_butterfly_q15(
         /* yd' = (ya+xb-yc-xd) */
         *__SIMD32(ptr1)++ = __SHASX(S, U);
 
-        # else  /* ifndef ARM_MATH_BIG_ENDIAN */
+        # else /* ifndef ARM_MATH_BIG_ENDIAN */
 
         /* xb' = (xa+yb-xc-yd) */
         /* yb' = (ya-xb-yc+xd) */
@@ -621,7 +621,7 @@ void arm_radix4_butterfly_q15(
     /* output is in 5.11(q11) format for the 16 point  */
 
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 
@@ -1395,7 +1395,7 @@ void arm_radix4_butterfly_inverse_q15(
                 out1 = __SMUSD(C1, S) >> 16u;
                 out2 = __SMUADX(C1, S);
 
-                # else  /* ifndef ARM_MATH_BIG_ENDIAN */
+                # else /* ifndef ARM_MATH_BIG_ENDIAN */
 
                 /* R = packed((ya-yc) + (xb- xd) , (xa-xc) - (yb-yd)) */
                 R = __SHASX(S, T);
@@ -1508,7 +1508,7 @@ void arm_radix4_butterfly_inverse_q15(
         /* yd' = (ya+xb-yc-xd) */
         *__SIMD32(ptr1)++ = __SHSAX(S, U);
 
-        # else  /* ifndef ARM_MATH_BIG_ENDIAN */
+        # else /* ifndef ARM_MATH_BIG_ENDIAN */
 
         /* xb' = (xa+yb-xc-yd) */
         /* yb' = (ya-xb-yc+xd) */
@@ -1532,7 +1532,7 @@ void arm_radix4_butterfly_inverse_q15(
     /* output is in 5.11(q11) format for the 16 point  */
 
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

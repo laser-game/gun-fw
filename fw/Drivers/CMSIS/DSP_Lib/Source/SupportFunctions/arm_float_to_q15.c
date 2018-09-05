@@ -121,7 +121,7 @@ void arm_float_to_q15(
         in     += in > 0.0f ? 0.5f : -0.5f;
         *pDst++ = (q15_t) (__SSAT((q31_t) (in), 16));
 
-        # else  /* ifdef ARM_MATH_ROUNDING */
+        # else /* ifdef ARM_MATH_ROUNDING */
 
         /* C = A * 32768 */
         /* convert from float to q15 and then store the results in the destination buffer */
@@ -163,7 +163,7 @@ void arm_float_to_q15(
     }
 
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

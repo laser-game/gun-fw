@@ -437,7 +437,7 @@ void arm_fir_decimate_f32(
         i--;
     }
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

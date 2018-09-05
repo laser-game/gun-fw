@@ -3,7 +3,6 @@
 
 #include "stm32f0xx_hal.h"
 
-#include "cm-out.hpp"
 #include "cm-gpio.hpp"
 #include "cm-uart.hpp"
 #include "cm-color-driver.hpp"
@@ -24,8 +23,8 @@ public:
     Out *laser;
     Out *flashlight_wh;
     Out *flashlight_uv;
-    Pin *trigger;
-    Pin *fuse;
+    In *trigger;
+    In *fuse;
     UART *uart;
     ColorDriver *color_driver;
 

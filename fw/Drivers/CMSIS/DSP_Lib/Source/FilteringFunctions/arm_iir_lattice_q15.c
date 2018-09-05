@@ -354,7 +354,7 @@ void arm_iir_lattice_q15(
         stgCnt--;
     }
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

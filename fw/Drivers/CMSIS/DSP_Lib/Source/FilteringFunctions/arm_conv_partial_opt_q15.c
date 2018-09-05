@@ -384,7 +384,7 @@ arm_status arm_conv_partial_opt_q15(
     return (status);
 } /* arm_conv_partial_opt_q15 */
 
-#else  /* ifndef UNALIGNED_SUPPORT_DISABLE */
+#else /* ifndef UNALIGNED_SUPPORT_DISABLE */
 
 arm_status arm_conv_partial_opt_q15(
     q15_t *  pSrcA,

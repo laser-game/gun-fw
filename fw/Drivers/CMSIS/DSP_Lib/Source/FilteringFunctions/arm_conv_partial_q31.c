@@ -552,7 +552,7 @@ arm_status arm_conv_partial_q31(
     /* Return to application */
     return (status);
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

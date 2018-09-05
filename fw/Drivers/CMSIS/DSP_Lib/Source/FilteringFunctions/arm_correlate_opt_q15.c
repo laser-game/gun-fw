@@ -327,7 +327,7 @@ void arm_correlate_opt_q15(
 
             acc3 = __SMLALDX(x3, y2, acc3);
 
-            #else  /* ifndef UNALIGNED_SUPPORT_DISABLE */
+            #else /* ifndef UNALIGNED_SUPPORT_DISABLE */
 
             /* Read four samples from smaller buffer */
             a = *pIn2;

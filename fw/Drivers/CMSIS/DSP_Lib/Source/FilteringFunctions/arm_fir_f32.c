@@ -557,7 +557,7 @@ void arm_fir_f32(
     }
 } /* arm_fir_f32 */
 
-#else  /* if defined(ARM_MATH_CM7) */
+#else /* if defined(ARM_MATH_CM7) */
 
 /* Run the below code for Cortex-M4 and Cortex-M3 */
 

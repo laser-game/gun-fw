@@ -146,7 +146,7 @@ void arm_std_q31(
      * and then store the result in a temporary variable, meanOfSquares. */
     meanOfSquares = sumOfSquares / (q63_t) (blockSize - 1);
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

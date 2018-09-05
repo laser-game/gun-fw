@@ -41,8 +41,6 @@
 
 /* USER CODE BEGIN Includes */
 #include "globals.hpp"
-#include "cm-gpio.hpp"
-#include "cm-out.hpp"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -64,9 +62,6 @@ static void MX_USART1_UART_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM14_Init(void);
 static void MX_TIM16_Init(void);
-
-/* USER CODE BEGIN PFP */
-/* Private function prototypes -----------------------------------------------*/
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -74,6 +69,11 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 #ifdef __cplusplus
 }
 #endif
+
+
+/* USER CODE BEGIN PFP */
+/* Private function prototypes -----------------------------------------------*/
+
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -115,10 +115,10 @@ int main(void)
     MX_TIM16_Init();
     /* USER CODE BEGIN 2 */
     global->laser         = new Out(LASER_GPIO_Port, LASER_Pin, 1);
-    global->flashlight_wh = new Out(LED_WH_GPIO_Port, LED_WH_Pin, 1);
-    global->flashlight_uv = new Out(LED_UV_GPIO_Port, LED_UV_Pin, 1);
-    global->trigger       = new Pin(BANG_GPIO_Port, BANG_Pin);
-    global->fuse         = new Pin(FUSE_GPIO_Port, FUSE_Pin);
+    global->flashlight_wh = new Out(FLASHLIGHT_WH_GPIO_Port, FLASHLIGHT_WH_Pin, 1);
+    global->flashlight_uv = new Out(FLASHLIGHT_UV_GPIO_Port, FLASHLIGHT_UV_Pin, 1);
+    global->trigger       = new In(TRIGGER_GPIO_Port, TRIGGER_Pin);
+    global->fuse         = new In(FUSE_GPIO_Port, FUSE_Pin);
     global->uart         = new UART(&huart1);
     global->color_driver = new ColorDriver(&htim3, TIM_CHANNEL_4, TIM_CHANNEL_2, TIM_CHANNEL_1);
     /* USER CODE END 2 */
@@ -129,18 +129,14 @@ int main(void)
     {
         /* USER CODE END WHILE */
 
-        global->laser->toggle();
-        HAL_Delay(100);
-        // if (global->fuse->get())
-        if (HAL_GPIO_ReadPin(BANG_GPIO_Port, BANG_Pin) == 0)
+        /* USER CODE BEGIN 3 */
+        if (global->fuse->is_active())
             global->color_driver->rgb(255, 255, 255);
         else
             global->color_driver->rgb(0, 0, 0);
-
-        /* USER CODE BEGIN 3 */
     }
     /* USER CODE END 3 */
-} // main
+} /* main */
 
 /**
  * @brief System Clock Configuration
@@ -196,7 +192,7 @@ void SystemClock_Config(void)
 
     /* SysTick_IRQn interrupt configuration */
     HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
-} // SystemClock_Config
+} /* SystemClock_Config */
 
 /* TIM3 init function */
 static void MX_TIM3_Init(void)
@@ -242,7 +238,7 @@ static void MX_TIM3_Init(void)
     }
 
     HAL_TIM_MspPostInit(&htim3);
-} // MX_TIM3_Init
+} /* MX_TIM3_Init */
 
 /* TIM14 init function */
 static void MX_TIM14_Init(void)
@@ -329,38 +325,38 @@ static void MX_GPIO_Init(void)
     __HAL_RCC_GPIOA_CLK_ENABLE();
 
     /*Configure GPIO pin Output Level */
-    HAL_GPIO_WritePin(LED_WH_GPIO_Port, LED_WH_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(FLASHLIGHT_WH_GPIO_Port, FLASHLIGHT_WH_Pin, GPIO_PIN_RESET);
 
     /*Configure GPIO pin Output Level */
-    HAL_GPIO_WritePin(LED_UV_GPIO_Port, LED_UV_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(FLASHLIGHT_UV_GPIO_Port, FLASHLIGHT_UV_Pin, GPIO_PIN_RESET);
 
     /*Configure GPIO pin Output Level */
     HAL_GPIO_WritePin(GPIOA, LASER_Pin | IR_TX_Pin, GPIO_PIN_RESET);
 
-    /*Configure GPIO pin : LED_WH_Pin */
-    GPIO_InitStruct.Pin   = LED_WH_Pin;
+    /*Configure GPIO pin : FLASHLIGHT_WH_Pin */
+    GPIO_InitStruct.Pin   = FLASHLIGHT_WH_Pin;
     GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull  = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    HAL_GPIO_Init(LED_WH_GPIO_Port, &GPIO_InitStruct);
+    HAL_GPIO_Init(FLASHLIGHT_WH_GPIO_Port, &GPIO_InitStruct);
 
-    /*Configure GPIO pin : LED_UV_Pin */
-    GPIO_InitStruct.Pin   = LED_UV_Pin;
+    /*Configure GPIO pin : FLASHLIGHT_UV_Pin */
+    GPIO_InitStruct.Pin   = FLASHLIGHT_UV_Pin;
     GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull  = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    HAL_GPIO_Init(LED_UV_GPIO_Port, &GPIO_InitStruct);
+    HAL_GPIO_Init(FLASHLIGHT_UV_GPIO_Port, &GPIO_InitStruct);
 
-    /*Configure GPIO pin : BANG_Pin */
-    GPIO_InitStruct.Pin  = BANG_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(BANG_GPIO_Port, &GPIO_InitStruct);
+    /*Configure GPIO pin : TRIGGER_Pin */
+    GPIO_InitStruct.Pin  = TRIGGER_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    HAL_GPIO_Init(TRIGGER_GPIO_Port, &GPIO_InitStruct);
 
     /*Configure GPIO pin : FUSE_Pin */
     GPIO_InitStruct.Pin  = FUSE_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
     HAL_GPIO_Init(FUSE_GPIO_Port, &GPIO_InitStruct);
 
     /*Configure GPIO pins : LASER_Pin IR_TX_Pin */
@@ -373,7 +369,7 @@ static void MX_GPIO_Init(void)
     /* EXTI interrupt init*/
     HAL_NVIC_SetPriority(EXTI0_1_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(EXTI0_1_IRQn);
-} // MX_GPIO_Init
+} /* MX_GPIO_Init */
 
 /* USER CODE BEGIN 4 */
 

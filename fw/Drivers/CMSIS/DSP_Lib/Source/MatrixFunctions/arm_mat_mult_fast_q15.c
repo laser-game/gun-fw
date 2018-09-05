@@ -197,7 +197,7 @@ arm_status arm_mat_mult_fast_q15(
 
                 # endif /*    #ifndef ARM_MATH_BIG_ENDIAN    */
 
-                #else  /* ifndef UNALIGNED_SUPPORT_DISABLE */
+                #else /* ifndef UNALIGNED_SUPPORT_DISABLE */
 
                 /* Read one element from the row */
                 in = *pInB++;

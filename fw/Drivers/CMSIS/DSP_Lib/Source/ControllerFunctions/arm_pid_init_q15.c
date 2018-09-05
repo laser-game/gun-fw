@@ -88,7 +88,7 @@ void arm_pid_init_q15(
         memset(S->state, 0, 3u * sizeof(q15_t));
     }
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

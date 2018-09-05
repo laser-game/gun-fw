@@ -628,7 +628,7 @@ void arm_correlate_fast_q15(
         blockSize3--;
     }
 
-    #else  /* ifndef UNALIGNED_SUPPORT_DISABLE */
+    #else /* ifndef UNALIGNED_SUPPORT_DISABLE */
 
     q15_t *pIn1;                                                                         /* inputA pointer               */
     q15_t *pIn2;                                                                         /* inputB pointer               */

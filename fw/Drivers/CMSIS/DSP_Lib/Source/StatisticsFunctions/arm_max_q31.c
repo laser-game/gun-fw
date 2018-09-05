@@ -134,7 +134,7 @@ void arm_max_q31(
     /* if (blockSize - 1u) is not multiple of 4 */
     blkCnt = (blockSize - 1u) % 4u;
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
     q31_t maxVal1, out;        /* Temporary variables to store the output value. */

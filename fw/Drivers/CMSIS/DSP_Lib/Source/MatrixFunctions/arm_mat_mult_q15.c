@@ -200,7 +200,7 @@ arm_status arm_mat_mult_q15(
                 /* Update the pointer px to point to the next row of the transposed matrix */
                 px += numRowsB;
 
-                # else  /* ifndef UNALIGNED_SUPPORT_DISABLE */
+                # else /* ifndef UNALIGNED_SUPPORT_DISABLE */
 
                 /* Read one element from the row */
                 in = *pInB++;
@@ -313,7 +313,7 @@ arm_status arm_mat_mult_q15(
                     sum = __SMLALD(pSourceA1, pSourceB1, sum);
                     sum = __SMLALD(pSourceA2, pSourceB2, sum);
 
-                    # else  /* ifndef UNALIGNED_SUPPORT_DISABLE */
+                    # else /* ifndef UNALIGNED_SUPPORT_DISABLE */
                     /* read real and imag values from pSrcA and pSrcB buffer */
                     inA1 = *pInA++;
                     inB1 = *pInB++;
@@ -367,7 +367,7 @@ arm_status arm_mat_mult_q15(
         }
         while (row > 0u);
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

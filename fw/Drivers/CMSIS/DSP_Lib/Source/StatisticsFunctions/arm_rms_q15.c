@@ -119,7 +119,7 @@ void arm_rms_q15(
     /* Store the result in the destination */
     arm_sqrt_q15(__SSAT((sum / (q63_t) blockSize) >> 15, 16), pResult);
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

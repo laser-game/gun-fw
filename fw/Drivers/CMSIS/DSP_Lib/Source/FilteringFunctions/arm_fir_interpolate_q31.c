@@ -389,7 +389,7 @@ void arm_fir_interpolate_q31(
     }
 } /* arm_fir_interpolate_q31 */
 
-#else  /* ifndef ARM_MATH_CM0_FAMILY */
+#else /* ifndef ARM_MATH_CM0_FAMILY */
 
 void arm_fir_interpolate_q31(
     const arm_fir_interpolate_instance_q31 *S,

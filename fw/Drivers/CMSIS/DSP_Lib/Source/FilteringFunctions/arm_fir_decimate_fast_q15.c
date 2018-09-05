@@ -313,7 +313,7 @@ void arm_fir_decimate_fast_q15(
     }
 } /* arm_fir_decimate_fast_q15 */
 
-#else  /* ifndef UNALIGNED_SUPPORT_DISABLE */
+#else /* ifndef UNALIGNED_SUPPORT_DISABLE */
 
 
 void arm_fir_decimate_fast_q15(

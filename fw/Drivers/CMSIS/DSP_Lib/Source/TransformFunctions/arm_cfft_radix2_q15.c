@@ -306,7 +306,7 @@ void arm_radix2_butterfly_q15(
     } // groups loop end
 
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     unsigned i, j, k, l;
     unsigned n1, n2, ia;
@@ -612,7 +612,7 @@ void arm_radix2_butterfly_inverse_q15(
 
     twidCoefModifier = twidCoefModifier << 1u;
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
 
     unsigned i, j, k, l;

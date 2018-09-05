@@ -73,7 +73,7 @@ void arm_pid_init_q31(
     S->A1 = -__QADD(__QADD(S->Kd, S->Kd), S->Kp);
 
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

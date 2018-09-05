@@ -147,7 +147,7 @@ void arm_var_q15(
     /* mean of the squares minus the square of the mean. */
     *pResult = (meanOfSquares - squareOfMean) >> 15;
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
     q15_t in; /* input value */

@@ -237,7 +237,7 @@ void arm_radix2_butterfly_f32(
         pSrc[2 * i + 3] = yt;
     } // groups loop end
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     n2 = fftLen;
 
@@ -403,7 +403,7 @@ void arm_radix2_butterfly_inverse_f32(
         pSrc[2 * i + 3] = p3;
     } // butterfly loop end
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     n2 = fftLen;
 

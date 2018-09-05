@@ -178,7 +178,7 @@ arm_status arm_mat_trans_q15(
 
                 #  endif /*    #ifndef ARM_MATH_BIG_ENDIAN    */
 
-                # else  /* ifndef UNALIGNED_SUPPORT_DISABLE */
+                # else /* ifndef UNALIGNED_SUPPORT_DISABLE */
                 /* Read one element from the row */
                 in = *pSrcA++;
 
@@ -224,7 +224,7 @@ arm_status arm_mat_trans_q15(
             /* Perform matrix transpose for last 3 samples here. */
             col = nColumns % 0x4u;
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

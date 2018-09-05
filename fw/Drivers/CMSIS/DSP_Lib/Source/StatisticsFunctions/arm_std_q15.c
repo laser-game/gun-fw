@@ -146,7 +146,7 @@ void arm_std_q15(
     /* Compute standard deviation and store the result to the destination */
     arm_sqrt_q15(__SSAT((meanOfSquares - squareOfMean) >> 15, 16u), pResult);
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
     q15_t in; /* input value */

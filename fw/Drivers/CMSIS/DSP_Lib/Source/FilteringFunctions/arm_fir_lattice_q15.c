@@ -405,7 +405,7 @@ void arm_fir_lattice_q15(
         *px++ = (q15_t) fcurnt1;
 
         /* f1(n) is saved in fcurnt1
-        *  for next stage processing */
+         *  for next stage processing */
         fcurnt1 = fnext1;
 
         stageCnt = (numStages - 1u);
@@ -430,7 +430,7 @@ void arm_fir_lattice_q15(
 
 
             /* f1(n) is saved in fcurnt1
-            *  for next stage processing */
+             *  for next stage processing */
             fcurnt1 = fnext1;
 
             stageCnt--;
@@ -443,7 +443,7 @@ void arm_fir_lattice_q15(
         blkCnt--;
     }
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

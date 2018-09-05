@@ -422,7 +422,7 @@ void arm_fir_lattice_f32(
         blkCnt--;
     }
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

@@ -159,7 +159,7 @@ void arm_std_f32(
     /* Compute standard deviation and then store the result to the destination */
     arm_sqrt_f32((meanOfSquares - squareOfMean), pResult);
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

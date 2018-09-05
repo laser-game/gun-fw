@@ -159,7 +159,7 @@ void arm_var_f32(
     /* Compute variance and then store the result to the destination */
     *pResult = meanOfSquares - squareOfMean;
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
     float32_t squareOfSum; /* Square of Sum */

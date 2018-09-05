@@ -126,7 +126,7 @@ void arm_float_to_q31(
         in     += in > 0.0f ? 0.5f : -0.5f;
         *pDst++ = clip_q63_to_q31((q63_t) (in));
 
-        # else  /* ifdef ARM_MATH_ROUNDING */
+        # else /* ifdef ARM_MATH_ROUNDING */
 
         /* C = A * 2147483648 */
         /* convert from float to Q31 and then store the results in the destination buffer */
@@ -169,7 +169,7 @@ void arm_float_to_q31(
     }
 
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

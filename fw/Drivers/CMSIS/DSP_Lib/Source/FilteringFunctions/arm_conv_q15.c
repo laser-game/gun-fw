@@ -698,7 +698,7 @@ void arm_conv_q15(
         blockSize3--;
     }
 
-    #else  /* if (defined(ARM_MATH_CM4) || defined(ARM_MATH_CM3)) && !defined(UNALIGNED_SUPPORT_DISABLE) */
+    #else /* if (defined(ARM_MATH_CM4) || defined(ARM_MATH_CM3)) && !defined(UNALIGNED_SUPPORT_DISABLE) */
 
     /* Run the below code for Cortex-M0 */
 

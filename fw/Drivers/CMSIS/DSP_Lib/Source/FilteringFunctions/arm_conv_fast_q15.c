@@ -688,7 +688,7 @@ void arm_conv_fast_q15(
         blockSize3--;
     }
 
-    #else  /* ifndef UNALIGNED_SUPPORT_DISABLE */
+    #else /* ifndef UNALIGNED_SUPPORT_DISABLE */
     q15_t *pIn1;                                                      /* inputA pointer */
     q15_t *pIn2;                                                      /* inputB pointer */
     q15_t *pOut = pDst;                                               /* output pointer */

@@ -164,7 +164,7 @@ int32_t main()
     arm_mat_init_f32(&srcB, numSubjects, 1, (float32_t *) testUnity_f32);
     arm_mat_init_f32(&dstC, numStudents, 1, testOutput);
 
-    #else  /* ifndef  USE_STATIC_INIT */
+    #else /* ifndef  USE_STATIC_INIT */
 
     /* Static Initializations of Input and output matrix sizes and array */
     arm_matrix_instance_f32 srcA = { NUMSTUDENTS, NUMSUBJECTS, (float32_t *) testMarks_f32 };

@@ -403,7 +403,7 @@ void arm_radix4_butterfly_q31(
         }
         twidCoefModifier <<= 2u;
     }
-    #else  /* if defined(ARM_MATH_CM7) */
+    #else /* if defined(ARM_MATH_CM7) */
     uint32_t n1, n2, ia1, ia2, ia3, i0, j, k;
     q31_t t1, t2, r1, r2, s1, s2, co1, co2, co3, si1, si2, si3;
 
@@ -692,7 +692,7 @@ void arm_radix4_butterfly_q31(
         xd   = (q31_t) xdyd;
         yd   = (q31_t) (xdyd >> 32);
 
-        #else  /* ifndef ARM_MATH_BIG_ENDIAN */
+        #else /* ifndef ARM_MATH_BIG_ENDIAN */
 
         /* Read xa (real), ya(imag) input */
         xaya = *__SIMD64(ptr1)++;
@@ -1047,7 +1047,7 @@ void arm_radix4_butterfly_inverse_q31(
         }
         twidCoefModifier <<= 2u;
     }
-    #else  /* if defined(ARM_MATH_CM7) */
+    #else /* if defined(ARM_MATH_CM7) */
     uint32_t n1, n2, ia1, ia2, ia3, i0, j, k;
     q31_t t1, t2, r1, r2, s1, s2, co1, co2, co3, si1, si2, si3;
     q31_t xa, xb, xc, xd;
@@ -1328,7 +1328,7 @@ void arm_radix4_butterfly_inverse_q31(
         xd   = (q31_t) xdyd;
         yd   = (q31_t) (xdyd >> 32);
 
-        #else  /* ifndef ARM_MATH_BIG_ENDIAN */
+        #else /* ifndef ARM_MATH_BIG_ENDIAN */
 
         /* Read xa (real), ya(imag) input */
         xaya = *__SIMD64(ptr1)++;

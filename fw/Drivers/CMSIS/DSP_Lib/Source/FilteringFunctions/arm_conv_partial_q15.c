@@ -736,7 +736,7 @@ arm_status arm_conv_partial_q15(
     /* Return to application */
     return (status);
 
-    #else  /* if (defined(ARM_MATH_CM4) || defined(ARM_MATH_CM3)) && !defined(UNALIGNED_SUPPORT_DISABLE) */
+    #else /* if (defined(ARM_MATH_CM4) || defined(ARM_MATH_CM3)) && !defined(UNALIGNED_SUPPORT_DISABLE) */
 
     /* Run the below code for Cortex-M0 */
 

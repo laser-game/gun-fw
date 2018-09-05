@@ -352,7 +352,7 @@ void arm_dct4_f32(
     while (i > 0u);
 
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

@@ -440,7 +440,7 @@ void arm_radix4_butterfly_f32(
     }
     while (--j);
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY_FAMILY */
 
     float32_t t1, t2, r1, r2, s1, s2;
 
@@ -967,7 +967,7 @@ void arm_radix4_butterfly_inverse_f32(
     }
     while (--j);
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY_FAMILY */
 
     float32_t t1, t2, r1, r2, s1, s2;
 

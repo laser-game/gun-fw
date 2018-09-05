@@ -175,7 +175,7 @@ void arm_cmplx_mult_real_q15(
         blkCnt--;
     }
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

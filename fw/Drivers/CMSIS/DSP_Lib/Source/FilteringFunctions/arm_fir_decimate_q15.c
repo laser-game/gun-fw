@@ -310,7 +310,7 @@ void arm_fir_decimate_q15(
     }
 } /* arm_fir_decimate_q15 */
 
-# else  /* ifndef UNALIGNED_SUPPORT_DISABLE */
+# else /* ifndef UNALIGNED_SUPPORT_DISABLE */
 
 
 void arm_fir_decimate_q15(
@@ -587,7 +587,7 @@ void arm_fir_decimate_q15(
 
 # endif /*	#ifndef UNALIGNED_SUPPORT_DISABLE	*/
 
-#else  /* ifndef ARM_MATH_CM0_FAMILY */
+#else /* ifndef ARM_MATH_CM0_FAMILY */
 
 
 void arm_fir_decimate_q15(

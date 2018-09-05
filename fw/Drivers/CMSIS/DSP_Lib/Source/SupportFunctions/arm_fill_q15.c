@@ -95,7 +95,7 @@ void arm_fill_q15(
     ** No loop unrolling is used. */
     blkCnt = blockSize % 0x4u;
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

@@ -42,8 +42,8 @@
 #include "arm_math.h"
 
 /*--------------------------------------------------------------------
-*		Internal functions prototypes
-*  --------------------------------------------------------------------*/
+ *		Internal functions prototypes
+ *  --------------------------------------------------------------------*/
 
 void arm_split_rfft_q15(
     q15_t *  pSrc,
@@ -199,7 +199,7 @@ void arm_split_rfft_q15(
         outR = __SMLAD(*__SIMD32(pSrc2), *__SIMD32(pCoefB), outR) >> 16u;
 
         /* pIn[2 * n - 2 * i] * pBTable[2 * i + 1] -
-         * pIn[2 * n - 2 * i + 1] * pBTable[2 * i] */
+        * pIn[2 * n - 2 * i + 1] * pBTable[2 * i] */
 
         # ifndef ARM_MATH_BIG_ENDIAN
 
@@ -234,7 +234,7 @@ void arm_split_rfft_q15(
     pDst[0] = (pSrc[0] + pSrc[1]) >> 1;
     pDst[1] = 0;
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
     i = 1u;
@@ -374,7 +374,7 @@ void arm_split_rifft_q15(
         outI = __SMLSDX(*__SIMD32(pSrc1)++, *__SIMD32(pCoefA), -outI);
 
         # endif /*      #ifndef ARM_MATH_BIG_ENDIAN     */
-               /* write output */
+                /* write output */
 
         # ifndef ARM_MATH_BIG_ENDIAN
 
@@ -392,7 +392,7 @@ void arm_split_rifft_q15(
 
         i--;
     }
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
     /* Run the below code for Cortex-M0 */
     i = fftLen;
 

@@ -125,7 +125,7 @@ arm_status arm_fir_init_q15(
 
     return (status);
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

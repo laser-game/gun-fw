@@ -104,7 +104,7 @@ void arm_q15_to_q31(
         /* extract upper 16 bits to 32 bit result */
         out4 = in2 & 0xFFFF0000;
 
-        # else  /* ifndef ARM_MATH_BIG_ENDIAN */
+        # else /* ifndef ARM_MATH_BIG_ENDIAN */
 
         /* extract upper 16 bits to 32 bit result */
         out1 = in1 & 0xFFFF0000;
@@ -130,7 +130,7 @@ void arm_q15_to_q31(
     ** No loop unrolling is used. */
     blkCnt = blockSize % 0x4u;
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

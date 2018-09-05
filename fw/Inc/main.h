@@ -49,19 +49,19 @@
 
 /* Private define ------------------------------------------------------------*/
 
-# define LED_WH_Pin       GPIO_PIN_8
-# define LED_WH_GPIO_Port GPIOB
-# define LED_UV_Pin       GPIO_PIN_0
-# define LED_UV_GPIO_Port GPIOF
-# define BANG_Pin         GPIO_PIN_1
-# define BANG_GPIO_Port   GPIOF
-# define BANG_EXTI_IRQn   EXTI0_1_IRQn
-# define FUSE_Pin         GPIO_PIN_0
-# define FUSE_GPIO_Port   GPIOA
-# define LASER_Pin        GPIO_PIN_1
-# define LASER_GPIO_Port  GPIOA
-# define IR_TX_Pin        GPIO_PIN_2
-# define IR_TX_GPIO_Port  GPIOA
+# define FLASHLIGHT_WH_Pin       GPIO_PIN_8
+# define FLASHLIGHT_WH_GPIO_Port GPIOB
+# define FLASHLIGHT_UV_Pin       GPIO_PIN_0
+# define FLASHLIGHT_UV_GPIO_Port GPIOF
+# define TRIGGER_Pin             GPIO_PIN_1
+# define TRIGGER_GPIO_Port       GPIOF
+# define TRIGGER_EXTI_IRQn       EXTI0_1_IRQn
+# define FUSE_Pin                GPIO_PIN_0
+# define FUSE_GPIO_Port          GPIOA
+# define LASER_Pin               GPIO_PIN_1
+# define LASER_GPIO_Port         GPIOA
+# define IR_TX_Pin               GPIO_PIN_2
+# define IR_TX_GPIO_Port         GPIOA
 
 /* ########################## Assert Selection ############################## */
 

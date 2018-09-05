@@ -316,7 +316,7 @@ void arm_biquad_cascade_df1_q31(
     }
     while (--stage);
 
-    #else  /* ifndef ARM_MATH_CM0_FAMILY_FAMILY */
+    #else /* ifndef ARM_MATH_CM0_FAMILY_FAMILY */
 
     /* Run the below code for Cortex-M0 */
 

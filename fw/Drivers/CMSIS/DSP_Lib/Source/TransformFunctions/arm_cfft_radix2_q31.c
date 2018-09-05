@@ -220,7 +220,7 @@ void arm_radix2_butterfly_q31(
 
         pSrc[2u * l + 1u] = yt;
     } // butterfly loop end
-} /* arm_radix2_butterfly_q31 */
+}     /* arm_radix2_butterfly_q31 */
 
 void arm_radix2_butterfly_inverse_q31(
     q31_t *  pSrc,
@@ -338,4 +338,4 @@ void arm_radix2_butterfly_inverse_q31(
 
         pSrc[2u * l + 1u] = yt;
     } // butterfly loop end
-} /* arm_radix2_butterfly_inverse_q31 */
+}     /* arm_radix2_butterfly_inverse_q31 */

@@ -722,7 +722,7 @@ arm_status arm_conv_partial_fast_q15(
     /* Return to application */
     return (status);
 
-    #else  /* ifndef UNALIGNED_SUPPORT_DISABLE */
+    #else /* ifndef UNALIGNED_SUPPORT_DISABLE */
 
     q15_t *pIn1;                       /* inputA pointer               */
     q15_t *pIn2;                       /* inputB pointer               */

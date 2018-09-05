@@ -469,7 +469,7 @@ void arm_biquad_cascade_df2T_f32(
     }
     while (stage > 0u);
 
-    #else  /* if defined(ARM_MATH_CM7) */
+    #else /* if defined(ARM_MATH_CM7) */
 
     float32_t Xn2, Xn3, Xn4;    /*  Input State variables     */
     float32_t acc2, acc3, acc4; /*  accumulator               */
