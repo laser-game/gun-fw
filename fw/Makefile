@@ -59,6 +59,7 @@ Src/system_stm32f0xx.c
 
 # C++ sources
 CPP_SOURCES = $(wildcard Src/*.cpp)
+CPP_SOURCES += $(wildcard ../../common-fw/Src/*.cpp)
 
 
 # ASM sources
@@ -126,7 +127,8 @@ C_INCLUDES =  \
 -IDrivers/CMSIS/Include \
 -IDrivers/STM32F0xx_HAL_Driver/Inc \
 -IDrivers/STM32F0xx_HAL_Driver/Inc/Legacy \
--IInc
+-IInc \
+-I../../common-fw/Inc
 
 # C++ includes
 CPP_INCLUDES = $(C_INCLUDES)
