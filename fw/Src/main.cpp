@@ -40,7 +40,9 @@
 #include "stm32f0xx_hal.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "globals.hpp"
+#include "cm-gpio.hpp"
+#include "cm-out.hpp"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -65,13 +67,13 @@ static void MX_TIM16_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
-# ifdef __cplusplus
+#ifdef __cplusplus
 extern "C" {
-# endif
+#endif
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
-# ifdef __cplusplus
+#ifdef __cplusplus
 }
-# endif
+#endif
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -112,7 +114,13 @@ int main(void)
     MX_TIM14_Init();
     MX_TIM16_Init();
     /* USER CODE BEGIN 2 */
-
+    global->laser         = new Out(LASER_GPIO_Port, LASER_Pin, 1);
+    global->flashlight_wh = new Out(LED_WH_GPIO_Port, LED_WH_Pin, 1);
+    global->flashlight_uv = new Out(LED_UV_GPIO_Port, LED_UV_Pin, 1);
+    global->trigger       = new Pin(BANG_GPIO_Port, BANG_Pin);
+    global->fuse         = new Pin(FUSE_GPIO_Port, FUSE_Pin);
+    global->uart         = new UART(&huart1);
+    global->color_driver = new ColorDriver(&htim3, TIM_CHANNEL_4, TIM_CHANNEL_2, TIM_CHANNEL_1);
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -120,8 +128,14 @@ int main(void)
     while (1)
     {
         /* USER CODE END WHILE */
-        HAL_GPIO_TogglePin(LASER_GPIO_Port, LASER_Pin);
-        HAL_Delay(250);
+
+        global->laser->toggle();
+        HAL_Delay(100);
+        // if (global->fuse->get())
+        if (HAL_GPIO_ReadPin(BANG_GPIO_Port, BANG_Pin) == 0)
+            global->color_driver->rgb(255, 255, 255);
+        else
+            global->color_driver->rgb(0, 0, 0);
 
         /* USER CODE BEGIN 3 */
     }
