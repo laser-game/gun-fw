@@ -118,7 +118,7 @@ int main(void)
     global->flashlight_wh = new Out(FLASHLIGHT_WH_GPIO_Port, FLASHLIGHT_WH_Pin, 1);
     global->flashlight_uv = new Out(FLASHLIGHT_UV_GPIO_Port, FLASHLIGHT_UV_Pin, 1);
     global->trigger       = new In(TRIGGER_GPIO_Port, TRIGGER_Pin);
-    global->fuse         = new In(FUSE_GPIO_Port, FUSE_Pin);
+    global->button        = new In(BUTTON_GPIO_Port, BUTTON_Pin);
     global->uart         = new UART(&huart1);
     global->color_driver = new ColorDriver(&htim3, TIM_CHANNEL_4, TIM_CHANNEL_2, TIM_CHANNEL_1);
     /* USER CODE END 2 */
@@ -349,11 +349,11 @@ static void MX_GPIO_Init(void)
     GPIO_InitStruct.Pull = GPIO_PULLUP;
     HAL_GPIO_Init(TRIGGER_GPIO_Port, &GPIO_InitStruct);
 
-    /*Configure GPIO pin : FUSE_Pin */
-    GPIO_InitStruct.Pin  = FUSE_Pin;
+    /*Configure GPIO pin : BUTTON_Pin */
+    GPIO_InitStruct.Pin  = BUTTON_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
     GPIO_InitStruct.Pull = GPIO_PULLUP;
-    HAL_GPIO_Init(FUSE_GPIO_Port, &GPIO_InitStruct);
+    HAL_GPIO_Init(BUTTON_GPIO_Port, &GPIO_InitStruct);
 
     /*Configure GPIO pins : LASER_Pin IR_TX_Pin */
     GPIO_InitStruct.Pin   = LASER_Pin | IR_TX_Pin;

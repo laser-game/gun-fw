@@ -24,7 +24,7 @@ public:
     Out *flashlight_wh;
     Out *flashlight_uv;
     In *trigger;
-    In *fuse;
+    In *button;
     UART *uart;
     ColorDriver *color_driver;
 
