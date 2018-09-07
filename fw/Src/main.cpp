@@ -130,10 +130,6 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        if (global->fuse->is_active())
-            global->color_driver->rgb(255, 255, 255);
-        else
-            global->color_driver->rgb(0, 0, 0);
     }
     /* USER CODE END 3 */
 } /* main */
