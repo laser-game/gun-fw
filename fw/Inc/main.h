@@ -58,6 +58,7 @@
 # define TRIGGER_EXTI_IRQn       EXTI0_1_IRQn
 # define BUTTON_Pin              GPIO_PIN_0
 # define BUTTON_GPIO_Port        GPIOA
+# define BUTTON_EXTI_IRQn        EXTI0_1_IRQn
 # define LASER_Pin               GPIO_PIN_1
 # define LASER_GPIO_Port         GPIOA
 # define IR_TX_Pin               GPIO_PIN_2
