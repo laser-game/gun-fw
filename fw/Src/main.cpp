@@ -40,7 +40,7 @@
 #include "stm32f0xx_hal.h"
 
 /* USER CODE BEGIN Includes */
-#include "globals.hpp"
+#include "global.hpp"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -114,6 +114,7 @@ int main(void)
     MX_TIM14_Init();
     MX_TIM16_Init();
     /* USER CODE BEGIN 2 */
+    global->init();
     global->laser         = new Out(LASER_GPIO_Port, LASER_Pin, 1);
     global->flashlight_wh = new Out(FLASHLIGHT_WH_GPIO_Port, FLASHLIGHT_WH_Pin, 1);
     global->flashlight_uv = new Out(FLASHLIGHT_UV_GPIO_Port, FLASHLIGHT_UV_Pin, 1);
@@ -121,6 +122,8 @@ int main(void)
     global->button        = new In(BUTTON_GPIO_Port, BUTTON_Pin);
     global->uart         = new UART(&huart1);
     global->color_driver = new ColorDriver(&htim3, TIM_CHANNEL_4, TIM_CHANNEL_2, TIM_CHANNEL_1);
+    global->ir = new IR(IR_TX_GPIO_Port, IR_TX_Pin, &htim16, &htim14, TIM_CHANNEL_1);
+
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -132,7 +135,7 @@ int main(void)
         /* USER CODE BEGIN 3 */
     }
     /* USER CODE END 3 */
-} /* main */
+} // main
 
 /**
  * @brief System Clock Configuration
@@ -188,7 +191,7 @@ void SystemClock_Config(void)
 
     /* SysTick_IRQn interrupt configuration */
     HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
-} /* SystemClock_Config */
+} // SystemClock_Config
 
 /* TIM3 init function */
 static void MX_TIM3_Init(void)
@@ -234,7 +237,7 @@ static void MX_TIM3_Init(void)
     }
 
     HAL_TIM_MspPostInit(&htim3);
-} /* MX_TIM3_Init */
+} // MX_TIM3_Init
 
 /* TIM14 init function */
 static void MX_TIM14_Init(void)
@@ -242,9 +245,9 @@ static void MX_TIM14_Init(void)
     TIM_OC_InitTypeDef sConfigOC;
 
     htim14.Instance               = TIM14;
-    htim14.Init.Prescaler         = 210;
+    htim14.Init.Prescaler         = 0;
     htim14.Init.CounterMode       = TIM_COUNTERMODE_UP;
-    htim14.Init.Period            = 0;
+    htim14.Init.Period            = 209;
     htim14.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;
     htim14.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
     if (HAL_TIM_Base_Init(&htim14) != HAL_OK)
@@ -257,8 +260,8 @@ static void MX_TIM14_Init(void)
         _Error_Handler(__FILE__, __LINE__);
     }
 
-    sConfigOC.OCMode     = TIM_OCMODE_FORCED_ACTIVE;
-    sConfigOC.Pulse      = 210;
+    sConfigOC.OCMode     = TIM_OCMODE_TOGGLE;
+    sConfigOC.Pulse      = 209;
     sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
     sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
     if (HAL_TIM_OC_ConfigChannel(&htim14, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
@@ -365,7 +368,7 @@ static void MX_GPIO_Init(void)
     /* EXTI interrupt init*/
     HAL_NVIC_SetPriority(EXTI0_1_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(EXTI0_1_IRQn);
-} /* MX_GPIO_Init */
+} // MX_GPIO_Init
 
 /* USER CODE BEGIN 4 */
 
