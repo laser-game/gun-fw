@@ -1,4 +1,4 @@
-#include "globals.hpp"
+#include "global.hpp"
 
 Global *global = Global::instance();
 
@@ -8,10 +8,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     {
         if (global->trigger->is_active())
         {
-            RGB green(0, 100, 0);
-            global->color_driver->rgb(green);
+            global->color_driver->rgb(RGB(1, 1, 1));
+            global->laser->on();
+            global->ir->tx();
+            global->laser->off();
         }
-
         else
         {
             global->color_driver->rgb(0, 0, 0);

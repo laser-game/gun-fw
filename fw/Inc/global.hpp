@@ -1,11 +1,12 @@
 #ifndef __GLOBALS_INLUDED__
 #define __GLOBALS_INLUDED__
 
-#include "stm32f0xx_hal.h"
-
+#include "cm-hal.hpp"
 #include "cm-gpio.hpp"
 #include "cm-uart.hpp"
 #include "cm-color-driver.hpp"
+#include "cm-crc.hpp"
+#include "ir-tx.hpp"
 
 using namespace std;
 
@@ -27,9 +28,12 @@ public:
     In *button;
     UART *uart;
     ColorDriver *color_driver;
+    IR *ir;
 
     inline void init(void)
-    { }
+    {
+        CRC16::init();
+    }
 };
 
 extern Global *global;
