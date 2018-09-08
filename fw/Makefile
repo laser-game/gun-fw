@@ -218,9 +218,12 @@ size:
 # flash
 #######################################
 flash:
-	@pystlink flash:erase:verify:$(BUILD_DIR)/$(TARGET).bin reset
+	@/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer_CLI -c port=SWD reset=HWrst -w $(BUILD_DIR)/$(TARGET).bin 0x08000000 -v -rst
 
 build_and_flash: all
+	@/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer_CLI -c port=SWD reset=HWrst -w $(BUILD_DIR)/$(TARGET).bin 0x08000000 -v -rst
+
+build_and_pystlink_flash: all
 	@pystlink flash:erase:verify:$(BUILD_DIR)/$(TARGET).bin reset
 
 # *** EOF ***
